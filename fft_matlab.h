@@ -6,17 +6,19 @@
 #include <QDebug>
 #include <iostream>
 
-QString* get_matlab_result(QString matlab_loc, QString matlab_script, QString data_file, int compute_cnt){
+QString* get_matlab_result(QString matlab_loc, QString matlab_script, QString data_file, int compute_cnt, bool run_matlab=true){
     QString *result = new QString[3];
     int p1 = matlab_script.lastIndexOf('/');
     int p2 = matlab_script.lastIndexOf('.');
     QString dir_loc = matlab_script.left(p1);
-    QString script_name = matlab_script.mid(p1+1,p2-p1-1);
-    QString matlab_proc = matlab_loc+" -nojvm -nosplash -r \"cd "+dir_loc+";"+script_name+"('"+data_file+"',"+QString::number(compute_cnt)+")\"";
-    qDebug()<<matlab_proc;
-    QProcess *proc = new QProcess;
-    proc->start(matlab_proc);
-    while (false == proc->waitForFinished()){;}
+    if(run_matlab){
+        QString script_name = matlab_script.mid(p1+1,p2-p1-1);
+        QString matlab_proc = matlab_loc+" -nodesktop -r \"cd "+dir_loc+";"+script_name+"('"+data_file+"',"+QString::number(compute_cnt)+")\"";
+        qDebug()<<matlab_proc;
+        QProcess *proc = new QProcess;
+        proc->start(matlab_proc);
+        while (false == proc->waitForFinished()){;}
+    }
     FILE *f;
     double d1,d2,d3;
     QString script_loc = dir_loc + "/fft_matlab_tmp";

@@ -7,11 +7,11 @@
     <x>0</x>
     <y>0</y>
     <width>516</width>
-    <height>804</height>
+    <height>843</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Bessel算法加速</string>
+   <string>FFT算法加速</string>
   </property>
   <property name="windowIcon">
    <iconset resource="imgs.qrc">
@@ -203,11 +203,6 @@
                <string>21</string>
               </property>
              </item>
-             <item>
-              <property name="text">
-               <string>22</string>
-              </property>
-             </item>
             </widget>
            </item>
           </layout>
@@ -259,7 +254,7 @@
       </layout>
      </item>
      <item>
-      <layout class="QHBoxLayout" name="horizontalLayout_5">
+      <layout class="QHBoxLayout" name="horizontalLayout_14">
        <property name="spacing">
         <number>20</number>
        </property>
@@ -285,149 +280,149 @@
            <property name="title">
             <string>加速算法</string>
            </property>
-           <widget class="QLabel" name="label_2">
+           <widget class="QWidget" name="layoutWidget">
             <property name="geometry">
              <rect>
               <x>16</x>
               <y>46</y>
-              <width>60</width>
-              <height>24</height>
+              <width>165</width>
+              <height>26</height>
              </rect>
             </property>
-            <property name="minimumSize">
-             <size>
-              <width>60</width>
-              <height>24</height>
-             </size>
-            </property>
-            <property name="font">
-             <font>
-              <pointsize>10</pointsize>
-             </font>
-            </property>
-            <property name="text">
-             <string>运行时间：</string>
-            </property>
+            <layout class="QHBoxLayout" name="horizontalLayout_8">
+             <item>
+              <widget class="QLabel" name="label_2">
+               <property name="minimumSize">
+                <size>
+                 <width>60</width>
+                 <height>24</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <pointsize>10</pointsize>
+                </font>
+               </property>
+               <property name="text">
+                <string>运行时间：</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="label_accel_time">
+               <property name="minimumSize">
+                <size>
+                 <width>96</width>
+                 <height>24</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <pointsize>12</pointsize>
+                </font>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
+             </item>
+            </layout>
            </widget>
-           <widget class="QLabel" name="label_accel_time">
-            <property name="geometry">
-             <rect>
-              <x>78</x>
-              <y>46</y>
-              <width>96</width>
-              <height>24</height>
-             </rect>
-            </property>
-            <property name="minimumSize">
-             <size>
-              <width>96</width>
-              <height>24</height>
-             </size>
-            </property>
-            <property name="font">
-             <font>
-              <pointsize>12</pointsize>
-             </font>
-            </property>
-            <property name="text">
-             <string/>
-            </property>
-           </widget>
-           <widget class="QLabel" name="label_6">
+           <widget class="QWidget" name="layoutWidget">
             <property name="geometry">
              <rect>
               <x>16</x>
               <y>84</y>
-              <width>60</width>
-              <height>24</height>
+              <width>165</width>
+              <height>26</height>
              </rect>
             </property>
-            <property name="minimumSize">
-             <size>
-              <width>60</width>
-              <height>24</height>
-             </size>
-            </property>
-            <property name="font">
-             <font>
-              <pointsize>10</pointsize>
-             </font>
-            </property>
-            <property name="text">
-             <string>运算次数：</string>
-            </property>
+            <layout class="QHBoxLayout" name="horizontalLayout_9">
+             <item>
+              <widget class="QLabel" name="label_6">
+               <property name="minimumSize">
+                <size>
+                 <width>60</width>
+                 <height>24</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <pointsize>10</pointsize>
+                </font>
+               </property>
+               <property name="text">
+                <string>运算次数：</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="label_accel_counts">
+               <property name="minimumSize">
+                <size>
+                 <width>96</width>
+                 <height>24</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <pointsize>12</pointsize>
+                </font>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
+             </item>
+            </layout>
            </widget>
-           <widget class="QLabel" name="label_accel_counts">
-            <property name="geometry">
-             <rect>
-              <x>78</x>
-              <y>84</y>
-              <width>96</width>
-              <height>24</height>
-             </rect>
-            </property>
-            <property name="minimumSize">
-             <size>
-              <width>96</width>
-              <height>24</height>
-             </size>
-            </property>
-            <property name="font">
-             <font>
-              <pointsize>12</pointsize>
-             </font>
-            </property>
-            <property name="text">
-             <string/>
-            </property>
-           </widget>
-           <widget class="QLabel" name="label_5">
+           <widget class="QWidget" name="layoutWidget">
             <property name="geometry">
              <rect>
               <x>16</x>
               <y>122</y>
-              <width>60</width>
-              <height>24</height>
+              <width>165</width>
+              <height>26</height>
              </rect>
             </property>
-            <property name="minimumSize">
-             <size>
-              <width>60</width>
-              <height>24</height>
-             </size>
-            </property>
-            <property name="font">
-             <font>
-              <pointsize>10</pointsize>
-             </font>
-            </property>
-            <property name="text">
-             <string>单次时间：</string>
-            </property>
-           </widget>
-           <widget class="QLabel" name="label_accel_once">
-            <property name="geometry">
-             <rect>
-              <x>78</x>
-              <y>122</y>
-              <width>96</width>
-              <height>24</height>
-             </rect>
-            </property>
-            <property name="minimumSize">
-             <size>
-              <width>96</width>
-              <height>24</height>
-             </size>
-            </property>
-            <property name="font">
-             <font>
-              <pointsize>12</pointsize>
-             </font>
-            </property>
-            <property name="text">
-             <string/>
-            </property>
+            <layout class="QHBoxLayout" name="horizontalLayout_10">
+             <item>
+              <widget class="QLabel" name="label_5">
+               <property name="minimumSize">
+                <size>
+                 <width>60</width>
+                 <height>24</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <pointsize>10</pointsize>
+                </font>
+               </property>
+               <property name="text">
+                <string>单次时间：</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="label_accel_once">
+               <property name="minimumSize">
+                <size>
+                 <width>96</width>
+                 <height>24</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <pointsize>12</pointsize>
+                </font>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
+             </item>
+            </layout>
            </widget>
           </widget>
          </item>
@@ -475,164 +470,181 @@
            <property name="title">
             <string>Matlab</string>
            </property>
-           <widget class="QLabel" name="label_19">
+           <widget class="QWidget" name="layoutWidget">
             <property name="geometry">
              <rect>
               <x>16</x>
               <y>46</y>
-              <width>60</width>
-              <height>24</height>
+              <width>165</width>
+              <height>26</height>
              </rect>
             </property>
-            <property name="minimumSize">
-             <size>
-              <width>60</width>
-              <height>24</height>
-             </size>
-            </property>
-            <property name="font">
-             <font>
-              <pointsize>10</pointsize>
-             </font>
-            </property>
-            <property name="text">
-             <string>运行时间：</string>
-            </property>
+            <layout class="QHBoxLayout" name="horizontalLayout_11">
+             <item>
+              <widget class="QLabel" name="label_19">
+               <property name="minimumSize">
+                <size>
+                 <width>60</width>
+                 <height>24</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <pointsize>10</pointsize>
+                </font>
+               </property>
+               <property name="text">
+                <string>运行时间：</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="label_matlab_time">
+               <property name="minimumSize">
+                <size>
+                 <width>96</width>
+                 <height>24</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <pointsize>12</pointsize>
+                </font>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
+             </item>
+            </layout>
            </widget>
-           <widget class="QLabel" name="label_matlab_time">
-            <property name="geometry">
-             <rect>
-              <x>78</x>
-              <y>46</y>
-              <width>96</width>
-              <height>24</height>
-             </rect>
-            </property>
-            <property name="minimumSize">
-             <size>
-              <width>96</width>
-              <height>24</height>
-             </size>
-            </property>
-            <property name="font">
-             <font>
-              <pointsize>12</pointsize>
-             </font>
-            </property>
-            <property name="text">
-             <string/>
-            </property>
-           </widget>
-           <widget class="QLabel" name="label_21">
+           <widget class="QWidget" name="layoutWidget">
             <property name="geometry">
              <rect>
               <x>16</x>
               <y>84</y>
-              <width>60</width>
-              <height>24</height>
+              <width>165</width>
+              <height>26</height>
              </rect>
             </property>
-            <property name="minimumSize">
-             <size>
-              <width>60</width>
-              <height>24</height>
-             </size>
-            </property>
-            <property name="font">
-             <font>
-              <pointsize>10</pointsize>
-             </font>
-            </property>
-            <property name="text">
-             <string>运算次数：</string>
-            </property>
+            <layout class="QHBoxLayout" name="horizontalLayout_12">
+             <item>
+              <widget class="QLabel" name="label_21">
+               <property name="minimumSize">
+                <size>
+                 <width>60</width>
+                 <height>24</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <pointsize>10</pointsize>
+                </font>
+               </property>
+               <property name="text">
+                <string>运算次数：</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="label_matlab_counts">
+               <property name="minimumSize">
+                <size>
+                 <width>96</width>
+                 <height>24</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <pointsize>12</pointsize>
+                </font>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
+             </item>
+            </layout>
            </widget>
-           <widget class="QLabel" name="label_matlab_counts">
-            <property name="geometry">
-             <rect>
-              <x>78</x>
-              <y>84</y>
-              <width>96</width>
-              <height>24</height>
-             </rect>
-            </property>
-            <property name="minimumSize">
-             <size>
-              <width>96</width>
-              <height>24</height>
-             </size>
-            </property>
-            <property name="font">
-             <font>
-              <pointsize>12</pointsize>
-             </font>
-            </property>
-            <property name="text">
-             <string/>
-            </property>
-           </widget>
-           <widget class="QLabel" name="label_23">
+           <widget class="QWidget" name="layoutWidget">
             <property name="geometry">
              <rect>
               <x>16</x>
               <y>122</y>
-              <width>60</width>
-              <height>24</height>
+              <width>165</width>
+              <height>26</height>
              </rect>
             </property>
-            <property name="minimumSize">
-             <size>
-              <width>60</width>
-              <height>24</height>
-             </size>
-            </property>
-            <property name="font">
-             <font>
-              <pointsize>10</pointsize>
-             </font>
-            </property>
-            <property name="text">
-             <string>单次时间：</string>
-            </property>
-           </widget>
-           <widget class="QLabel" name="label_matlab_once">
-            <property name="geometry">
-             <rect>
-              <x>78</x>
-              <y>122</y>
-              <width>96</width>
-              <height>24</height>
-             </rect>
-            </property>
-            <property name="minimumSize">
-             <size>
-              <width>96</width>
-              <height>24</height>
-             </size>
-            </property>
-            <property name="font">
-             <font>
-              <pointsize>12</pointsize>
-             </font>
-            </property>
-            <property name="text">
-             <string/>
-            </property>
+            <layout class="QHBoxLayout" name="horizontalLayout_13">
+             <item>
+              <widget class="QLabel" name="label_23">
+               <property name="minimumSize">
+                <size>
+                 <width>60</width>
+                 <height>24</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <pointsize>10</pointsize>
+                </font>
+               </property>
+               <property name="text">
+                <string>单次时间：</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="label_matlab_once">
+               <property name="minimumSize">
+                <size>
+                 <width>96</width>
+                 <height>24</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <pointsize>12</pointsize>
+                </font>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
+             </item>
+            </layout>
            </widget>
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="pushButton_matlab">
-           <property name="minimumSize">
-            <size>
-             <width>200</width>
-             <height>0</height>
-            </size>
-           </property>
-           <property name="text">
-            <string>运行Matlab算法</string>
-           </property>
-          </widget>
+          <layout class="QHBoxLayout" name="horizontalLayout_5">
+           <item>
+            <widget class="QPushButton" name="pushButton_matlab">
+             <property name="minimumSize">
+              <size>
+               <width>96</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>内部调用</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="pushButton_matlab_outside">
+             <property name="minimumSize">
+              <size>
+               <width>96</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>外部调用</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
          </item>
          <item>
           <widget class="QPushButton" name="pushButton_matlab_result">
@@ -656,7 +668,7 @@
        <property name="minimumSize">
         <size>
          <width>420</width>
-         <height>160</height>
+         <height>180</height>
         </size>
        </property>
        <property name="title">
@@ -665,9 +677,9 @@
        <widget class="QWidget" name="layoutWidget">
         <property name="geometry">
          <rect>
-          <x>16</x>
+          <x>17</x>
           <y>30</y>
-          <width>209</width>
+          <width>210</width>
           <height>144</height>
          </rect>
         </property>
@@ -686,12 +698,12 @@
           </spacer>
          </item>
          <item>
-          <layout class="QHBoxLayout" name="horizontalLayout_6">
+          <layout class="QHBoxLayout" name="horizontalLayout_4">
            <item>
             <widget class="QLabel" name="label_7">
              <property name="minimumSize">
               <size>
-               <width>100</width>
+               <width>108</width>
                <height>24</height>
               </size>
              </property>
@@ -739,12 +751,12 @@
           </spacer>
          </item>
          <item>
-          <layout class="QHBoxLayout" name="horizontalLayout_7">
+          <layout class="QHBoxLayout" name="horizontalLayout_6">
            <item>
             <widget class="QLabel" name="label_8">
              <property name="minimumSize">
               <size>
-               <width>100</width>
+               <width>108</width>
                <height>24</height>
               </size>
              </property>
@@ -792,12 +804,12 @@
           </spacer>
          </item>
          <item>
-          <layout class="QHBoxLayout" name="horizontalLayout_8">
+          <layout class="QHBoxLayout" name="horizontalLayout_7">
            <item>
             <widget class="QLabel" name="label_9">
              <property name="minimumSize">
               <size>
-               <width>100</width>
+               <width>108</width>
                <height>24</height>
               </size>
              </property>
