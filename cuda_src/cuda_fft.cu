@@ -7,13 +7,10 @@
 #include <iomanip>
 #include "common.h"
 #include "cmdline.h"
-#include "cuda_profiler_api.h"
 
 using namespace std;
-//typedef float Type;
 typedef double Type;
-//const Type pi=3.1415926535897932384626433832795028;
-const Type pi=3.141592653589793238462643383279502884197169399375105820974944;
+const Type pi=3.1415926535897932384626433832795028;
 
 __global__ void fft(Type* devI_r,Type* devI_i,Type* devW_r,Type* devW_i,int nElem, int l, int s, int m){
 	const int tid = threadIdx.x + blockIdx.x * blockDim.x;
@@ -74,10 +71,6 @@ void InitialData(Type *I_r,Type *I_i,int nElem,string data_file){
 		++i;
 		I_i[i] = 0;
 	}
-//    for(int i=0;i<nElem;i++){
-//    	I_r[i] = i+1;
-//    	I_i[i] = 0;
-//    };
     bit_reverse(I_r,nElem);
     bit_reverse(I_i,nElem);
 }
@@ -89,12 +82,10 @@ int main(int argc, char *argv[]){
 
 	a.parse_check(argc, argv);
 	int N,l;
-//	scanf("%d",&l);
 	l = a.get<int>("num");
 	string data_file = a.get<string>("data");
 	string result_file = a.get<string>("result");
 	N = 1<<l;
-	cudaProfilerStart();
 	Type *W_r,*W_i,*I_r,*I_i;
 	unsigned int flags = cudaHostAllocMapped;
 	CHECK( cudaHostAlloc( (Type**)&W_r,sizeof(Type)*l*N/2+100,flags) );
@@ -118,14 +109,9 @@ int main(int argc, char *argv[]){
     cudaFreeHost(W_r);
     cudaFreeHost(W_i);
     int m=1;
-    cudaEvent_t start, stop;
-	CHECK( cudaEventCreate(&start) );
-	CHECK( cudaEventCreate(&stop) );
-	CHECK( cudaEventRecord(start, 0) );
 	int iStart,iEnd;
 	double Time = 0;
 	iStart = clock();
-//	double iStart = cpuSecond();
     for (int s=0;s<l;s++){
         if(N<=1024)
         	fft<<<1,N/2>>>(devI_r,devI_i,devW_r,devW_i,N,l,s,m);
@@ -133,8 +119,7 @@ int main(int argc, char *argv[]){
         	fft<<<N/1024,512>>>(devI_r,devI_i,devW_r,devW_i,N,l,s,m);
         m*=2;
     }
-    cudaDeviceSynchronize();  // 同步函数
-//    double iElaps = cpuSecond() - iStart;
+    cudaDeviceSynchronize();
     iEnd = clock();
     Time = (iEnd - iStart);
     Time=(Time+0.0)/(CLOCKS_PER_SEC);
@@ -147,11 +132,6 @@ int main(int argc, char *argv[]){
     f = fopen(target_file,"w+");
     fprintf(f,"%f\t%d\t%.12f\n",Time,N,onceTime);
     fclose(f);
-	CHECK( cudaEventRecord(stop, 0) );
-	CHECK( cudaEventSynchronize(stop) );
-	CHECK( cudaEventSynchronize(stop) );
-	float elapsedTime;
-	CHECK( cudaEventElapsedTime(&elapsedTime,start,stop) );
     cudaFree(devW_r);
     cudaFree(devW_i);
     CHECK( cudaMemcpy(I_r, devI_r, sizeof(Type)*N+100, cudaMemcpyDeviceToHost) );
@@ -161,14 +141,10 @@ int main(int argc, char *argv[]){
 	for(int i=0;i<N;i++){
 		outFile<<setprecision(10)<<I_r[i]<<" + "<<I_i[i]<<"i\n";
 	}
-	printf( "time : %3.1fms\n",elapsedTime);
-	CHECK( cudaEventDestroy(start) );
-	CHECK( cudaEventDestroy(stop) );
     cudaFree(devI_r);
     cudaFree(devI_i);
     cudaFreeHost(I_r);
     cudaFreeHost(I_i);
-    cudaProfilerStop();
     cudaDeviceReset();
     return 0;
 }
